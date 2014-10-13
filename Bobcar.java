@@ -21,7 +21,8 @@ public class Bobcar {
 		carChosen = askCar();
 		rentalDays = askDuration();
 		isMember = askMember();
-		wantsPackage = askPackage();
+		if (isMember == true)
+			wantsPackage = askPackage();
 		price = calculatePrice();
 	}
 	public static int calculatePrice(){
