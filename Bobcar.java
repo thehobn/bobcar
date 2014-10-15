@@ -2,7 +2,7 @@ import java.util.Scanner;
 /**
  * 
  * 09/24/14 CSE020 UCM Project 1
- * @author Huimin Zhang
+ * @author Huimin Zhang and Johnson Mei
  * @version 1
  *
  */
