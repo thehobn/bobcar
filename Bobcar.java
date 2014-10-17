@@ -11,7 +11,7 @@ public class Bobcar {
 	static Scanner input = new Scanner(System.in);
 
 	//Arrays for easy access to car names and prices
-	static String[] carList = {" ", Economy", "Compact", "Standard"};
+	static String[] carList = {"Economy", "Compact", "Standard"};
 	static int[] costList = {25, 55, 100};
 
 	//This variable can be easily modified to change currency (don't forget to change cost)
@@ -45,7 +45,7 @@ public class Bobcar {
 				"is" + ' ' + currency + costList[carChosen] + " per day. ");
 
 		//Show user the rental period
-		System.out.println("Rental period is " + rentalDays);
+		System.out.print("Rental period is " + rentalDays);
 
 		//Handle plurality
 		if (rentalDays == 1)
@@ -84,15 +84,15 @@ public class Bobcar {
 		System.out.println("Select from the following rental cars: ");
 		//Iterate through array of cars available and list them
 		for (int i=0;i<carList.length;i++) {
-			System.out.println("Press" + ' ' + i + ' ' + "for" + ' ' + carList[i]);
+			System.out.println("Press" + ' ' + (i+1) + ' ' + "for" + ' ' + carList[i]);
 		}
 
 		//Take input
-		int tempCarChosen = input.nextInt();
+		int carChosenIndex = input.nextInt() - 1;
 
 		//Check input validity
-		if (tempCarChosen >= 0 && tempCarChosen < carList.length)
-			return tempCarChosen;
+		if (carChosenIndex >= 0 && carChosenIndex < carList.length)
+			return carChosenIndex;
 		else{
 			System.out.println("Invalid input!");
 			return askCar();
