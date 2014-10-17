@@ -4,7 +4,7 @@ import java.util.Scanner;
  * 10/15/14 CSE020 UCM Project 1
  * @author Huimin Zhang
  * @author Johnson Mei
- * @version 1.1
+ * @version 1.2
  *
  */
 public class Bobcar {
@@ -39,7 +39,7 @@ public class Bobcar {
 		/*
 		 * Base price calculation
 		 */
-		
+
 		//Show user the chosen car and its price
 		System.out.println("Cost of chosen car, " + carList[carChosen] + ", " +
 				"is" + ' ' + currency + costList[carChosen] + " per day. ");
@@ -54,28 +54,30 @@ public class Bobcar {
 			System.out.println(" days.");
 
 		//Set price to the base price and print
-		price = costList[carChosen] * rentalDays;
-		System.out.println("Base price is " + currency + price);
+		int basePrice = costList[carChosen] * rentalDays;
+		System.out.println("Base price is " + "\t\t " + currency + basePrice);
+		price = basePrice;
 		
 		/*
 		 * Club discount and premium package cost
 		 */
-		
+
 		//Apply club discount if applicable
 		if (isMember == true) {
-			price -= costList[carChosen] * rentalDays / 5;
-			System.out.println("Club discount is " + currency + costList[carChosen] * rentalDays / 5);
-
+			int clubDiscountAmount = costList[carChosen] * (rentalDays / 5);
+			System.out.println("Club discount is " + "\t-" + currency + clubDiscountAmount);
+			price -= clubDiscountAmount;
 		}
 
 		//Add package price if chosen
 		if (wantsPackage == true) {
-			price *= 1.2;
-			System.out.println("Package cost is " + currency + price * 0.2);
+			int additionalPackageCost = (int) (basePrice * 0.2);
+			System.out.println("Package cost is " + "\t+" + currency + additionalPackageCost);
+			price += additionalPackageCost;
 		}
 
 		//Final price
-		System.out.println("Final price is " + currency + price);
+		System.out.println("Final price is " + "\t\t " + currency + price);
 		return price;
 	}
 
@@ -111,12 +113,12 @@ public class Bobcar {
 		System.out.println("Press 0 for no");
 
 		//Take input
-		int tempIsMember = input.nextInt();
+		int isMemberInput = input.nextInt();
 
 		//Parse input and check validity
-		if (tempIsMember == 1)
+		if (isMemberInput == 1)
 			return true;
-		else if (tempIsMember == 0)
+		else if (isMemberInput == 0)
 			return false;
 		else {
 			System.out.println("Invalid Input!");
@@ -131,12 +133,12 @@ public class Bobcar {
 		System.out.println("Press 0 for no");
 
 		//Take input
-		int tempWantsPackage = input.nextInt();
+		int wantsPackageInput = input.nextInt();
 
 		//Parse input and check validity
-		if (tempWantsPackage == 1)
+		if (wantsPackageInput == 1)
 			return true;
-		else if (tempWantsPackage == 0)
+		else if (wantsPackageInput == 0)
 			return false;
 		else {
 			System.out.println("Invalid Input!");
