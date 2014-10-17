@@ -11,8 +11,8 @@ public class Bobcar {
 	static Scanner input = new Scanner(System.in);
 
 	//Arrays for easy access to car names and prices
-	static String[] carList = {"Economy", "Compact", "Standard"};
-	static int[] costList = {22, 55, 100};
+	static String[] carList = {" ", Economy", "Compact", "Standard"};
+	static int[] costList = {25, 55, 100};
 
 	//This variable can be easily modified to change currency (don't forget to change cost)
 	static char currency = '$';
